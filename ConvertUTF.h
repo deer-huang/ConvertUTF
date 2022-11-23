@@ -106,6 +106,9 @@ typedef enum
     lenientConversion
 } ConversionFlags;
 
+    ConversionResult ConvertUTF8toUTF16(const UTF8** sourceStart,
+        const UTF8* sourceEnd, UTF16** targetStart, UTF16* targetEnd,
+        ConversionFlags flags);
 /* This is for C++ and does no harm in C */
 #ifdef __cplusplus
 extern "C"

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "ConvertUTF.h"
+#include "./ConvertUTF.h"
 
 void show_str(unsigned char const* str)
 {
@@ -21,7 +21,8 @@ int main(){
 	printf("%s\r\n", str_utf8);
 	show_str(str_utf8);
 	
-	//ConvertUTF8toUTF16(NULL, NULL, NULL, NULL);
-	//ConvertUTF8toUTF16(&(&str_utf8), &(str_utf8+5), &(&str_utf16), &(str_utf16+3));
-    return 0;
+	ConvertUTF8toUTF16(NULL, NULL, NULL, NULL, 0);
+	
+	
+    return 0;                                          
 }
