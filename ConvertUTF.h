@@ -82,12 +82,16 @@ typedef unsigned short UTF16;  /* at least 16 bits */
 typedef unsigned char UTF8;   /* typically 8 bits */
 typedef unsigned char Boolean; /* 0 or 1 */
 
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+
 /* Some fundamental constants */
 #define UNI_REPLACEMENT_CHAR (UTF32)0x0000FFFD
 #define UNI_MAX_BMP (UTF32)0x0000FFFF
 #define UNI_MAX_UTF16 (UTF32)0x0010FFFF
 #define UNI_MAX_UTF32 (UTF32)0x7FFFFFFF
 #define UNI_MAX_LEGAL_UTF32 (UTF32)0x0010FFFF
+
 
 typedef enum
 {

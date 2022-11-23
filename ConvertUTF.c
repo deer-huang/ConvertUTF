@@ -413,6 +413,7 @@ ConversionResult ConvertUTF8toUTF16(const UTF8** sourceStart,
     ConversionResult result = conversionOK;
     const UTF8* source = *sourceStart;
     UTF16* target = *targetStart;
+    
     while (source < sourceEnd)
     {
         UTF32 ch = 0;

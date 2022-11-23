@@ -1,4 +1,5 @@
 main.exe
 *.o
 Makefile.win
-*.exe*.layout
+*.exe
+*.layout
