@@ -501,6 +501,10 @@ ConversionResult ConvertUTF8toUTF16(const UTF8** sourceStart,
             *target++ = (UTF16) ((ch & halfMask) + UNI_SUR_LOW_START);
         }
     }
+    
+    //add '0' at str end
+	*(target) &= 0xFF00;
+	
     *sourceStart = source;
     *targetStart = target;
     return result;
