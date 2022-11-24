@@ -84,8 +84,8 @@ ConversionResult ConvertUTF32toUTF16(const UTF32** sourceStart,
             *target++ = (UTF16) ((ch & halfMask) + UNI_SUR_LOW_START);
         }
     }
-    *sourceStart = source;
-    *targetStart = target;
+    //*sourceStart = source;
+    //*targetStart = target;
     return result;
 }
 
@@ -151,8 +151,8 @@ ConversionResult ConvertUTF16toUTF32(const UTF16** sourceStart,
         }
         *target++ = ch;
     }
-    *sourceStart = source;
-    *targetStart = target;
+    //*sourceStart = source;
+    //*targetStart = target;
 #ifdef CVTUTF_DEBUG
     if (result == sourceIllegal)
     {
@@ -303,6 +303,7 @@ ConversionResult ConvertUTF16toUTF8(const UTF16** sourceStart,
         }
 
         target += bytesToWrite;
+	    printf("bytesToWrite = %d: \n", bytesToWrite);
         if (target > targetEnd)
         {
             source = oldSource; /* Back up source pointer! */
@@ -322,8 +323,8 @@ ConversionResult ConvertUTF16toUTF8(const UTF16** sourceStart,
         }
         target += bytesToWrite;
     }
-    *sourceStart = source;
-    *targetStart = target;
+    //*sourceStart = source;
+    //*targetStart = target;
     return result;
 }
 
@@ -503,7 +504,7 @@ ConversionResult ConvertUTF8toUTF16(const UTF8** sourceStart,
     }
 	
     //*sourceStart = source;
-    *targetStart = target;
+    //*targetStart = target;
     return result;
 }
 
@@ -580,8 +581,8 @@ ConversionResult ConvertUTF32toUTF8(const UTF32** sourceStart,
         }
         target += bytesToWrite;
     }
-    *sourceStart = source;
-    *targetStart = target;
+    //*sourceStart = source;
+    //*targetStart = target;
     return result;
 }
 
@@ -665,6 +666,6 @@ ConversionResult ConvertUTF8toUTF32(const UTF8** sourceStart,
         }
     }
     //*sourceStart = source;
-    *targetStart = target;
+    //*targetStart = target;
     return result;
 }
