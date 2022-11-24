@@ -27,9 +27,6 @@ int main(){
 	uint8_t utf8_size = str_size*UTF8_CHAR_SIZE ,
 			utf16_size = str_size*UTF16_CHAR_SIZE ,
 			utf32_size = str_size*UTF32_CHAR_SIZE ;
-	printf("utf8_size = %d: \n", utf8_size);
-	printf("utf16_size = %d: \n", utf16_size);
-	printf("utf32_size = %d: \n", utf32_size);
 			
 	UTF8 str_utf8[8];
 	UTF16 str_utf16[8];
@@ -47,15 +44,15 @@ int main(){
 	
 
 /*************************************************************************Test UTF8 => UTF16 & UTF32*************************************************************************/
-	printf("\nstr_utf8 = \n");
+	printf("\n\nstr_utf8 = \n");
 	show_str((uint8_t*)str_utf8, utf8_size);
 	
-	err_code = ConvertUTF8toUTF16((const UTF8**)&p_utf8, (const UTF8*)&str_utf8[utf8_size], &p_utf16, &str_utf16[utf16_size], strictConversion);
+	err_code = ConvertUTF8toUTF16((const UTF8**)&p_utf8, (const UTF8*)&str_utf8[utf8_size], &p_utf16, &str_utf16[str_size], strictConversion);
 	printf("\nstr_utf8 => str_utf16: \n");
 	printf("err_code = %d: \n", err_code);
 	show_str((uint8_t*)str_utf16, utf16_size);
 	
-	err_code = ConvertUTF8toUTF32((const UTF8**)&p_utf8, (const UTF8*)&str_utf8[utf8_size], &p_utf32, &str_utf32[utf32_size], strictConversion);
+	err_code = ConvertUTF8toUTF32((const UTF8**)&p_utf8, (const UTF8*)&str_utf8[utf8_size], &p_utf32, &str_utf32[str_size], strictConversion);
 	printf("\nstr_utf8 => str_utf32: \n");
 	printf("err_code = %d: \n", err_code);
 	show_str((uint8_t*)str_utf32, utf32_size);
@@ -64,15 +61,15 @@ int main(){
 	memset(str_utf32, 0x00, 6);
 /************************************************************************Test UTF16 => UTF8 & UTF32************************************************************************/
 	
-	printf("\n\nstr_utf16 = \n");
+	printf("\n\n\nstr_utf16 = \n");
 	show_str((uint8_t*)str_utf16, utf16_size);
 	
-	err_code = ConvertUTF16toUTF8((const UTF16**)&p_utf16, (const UTF16*)&str_utf16[utf16_size], &p_utf8, &str_utf8[utf8_size], strictConversion);
+	err_code = ConvertUTF16toUTF8((const UTF16**)&p_utf16, (const UTF16*)&str_utf16[str_size], &p_utf8, &str_utf8[utf8_size], strictConversion);
 	printf("\nstr_utf16 => str_utf8: \n");
 	printf("err_code = %d: \n", err_code);
 	show_str((uint8_t*)str_utf8, utf8_size);
 	
-	err_code = ConvertUTF16toUTF32((const UTF16**)&p_utf16, (const UTF16*)&str_utf16[utf16_size], &p_utf32, &str_utf32[utf32_size], strictConversion);
+	err_code = ConvertUTF16toUTF32((const UTF16**)&p_utf16, (const UTF16*)&str_utf16[str_size], &p_utf32, &str_utf32[str_size], strictConversion);
 	printf("\nstr_utf16 => str_utf32: \n");
 	printf("err_code = %d: \n", err_code);
 	show_str((uint8_t*)str_utf32, utf32_size);
@@ -80,5 +77,19 @@ int main(){
 	memset(str_utf8, 0x00, 6);
 	memset(str_utf16, 0x00, 6);
 /************************************************************************Test UTF32 => UTF8 & UTF16************************************************************************/
+	
+	printf("\n\n\nstr_utf32 = \n");
+	show_str((uint8_t*)str_utf32, utf32_size);
+	
+	err_code = ConvertUTF32toUTF8((const UTF32**)&p_utf32, (const UTF32*)&str_utf32[str_size], &p_utf8, &str_utf8[utf8_size], strictConversion);
+	printf("\nstr_utf32 => str_utf8: \n");
+	printf("err_code = %d: \n", err_code);
+	show_str((uint8_t*)str_utf8, utf8_size);
+	
+	err_code = ConvertUTF32toUTF16((const UTF32**)&p_utf32, (const UTF32*)&str_utf32[str_size], &p_utf16, &str_utf16[str_size], strictConversion);
+	printf("\nstr_utf32 => str_utf16: \n");
+	printf("err_code = %d: \n", err_code);
+	show_str((uint8_t*)str_utf16, utf16_size);
+	
     return 0;                                          
 }

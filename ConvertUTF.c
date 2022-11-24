@@ -303,7 +303,6 @@ ConversionResult ConvertUTF16toUTF8(const UTF16** sourceStart,
         }
 
         target += bytesToWrite;
-	    printf("bytesToWrite = %d: \n", bytesToWrite);
         if (target > targetEnd)
         {
             source = oldSource; /* Back up source pointer! */
